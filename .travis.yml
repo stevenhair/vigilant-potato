@@ -4,7 +4,13 @@ node_js:
   - "4.2"
 python:
   - "3.5"
+
+before_install:
+  - sudo apt-get -y install python3-pip python-dev
+  - sudo pip3 install -U setuptools
+  - sudo pip3 install -U virtualenvwrapper
+
 install:
-  - "pip install -r requirements.txt"
+  - pip3 install -r requirements.txt
 
 script: "inv test"
