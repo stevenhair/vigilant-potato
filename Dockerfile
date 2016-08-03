@@ -51,5 +51,6 @@ RUN ldconfig
 ENV PYTHONPATH="/usr/local/lib/python3.5/site-packages"
 
 
+ENV COMPOSE_API_VERSION=1.18
 ADD requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
