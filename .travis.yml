@@ -1,17 +1,23 @@
-language: node_js
 dist: trusty
-node_js:
-  - "5.5"
-  - "4.2"
-python:
-  - "3.5"
+
+sudo: required
+
+services:
+  - docker
 
 before_install:
-  - sudo apt-get -y install python3-pip python-dev
-  - sudo pip3 install -U setuptools
-  - sudo pip3 install -U virtualenvwrapper
+  - sudo apt-get update
+
+  # install docker
+  - sudo apt-get -y install docker.io
+  - sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
+  - sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
+
+  # install docker-compose
+  - sudo apt-get install -y python-pip
+  - sudo pip install docker-compose
 
 install:
-  - sudo pip3 install -r requirements.txt
+  - docker-compose build
 
-script: "inv test"
+script: "docker-compose run potato inv test"

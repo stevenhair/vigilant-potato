@@ -1,0 +1,7 @@
+potato:
+  build: .
+  volumes:
+      - .:/vigilant-potato
+      - ~/.ssh:/root/.ssh
+  command: echo "no command"
+  working_dir: /vigilant-potato
