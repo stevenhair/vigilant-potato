@@ -1,5 +1,5 @@
 # Creates a docker image to amber in it's own container
-FROM centos:7.1.1503
+FROM centos:7
 
 #Set Working Directory
 WORKDIR "/docker/vigilant-potato"
