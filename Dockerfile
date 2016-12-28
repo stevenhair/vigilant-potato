@@ -4,6 +4,10 @@ FROM centos:7.1.1503
 #Set Working Directory
 WORKDIR "/docker/vigilant-potato"
 
+# set default encoding to UTF-8
+RUN localedef -c -f UTF-8 -i en_US en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+
 #Install Prerequisites for Python and Eggs Installations
 RUN yum -y --skip-broken groupinstall "Development tools"
 RUN yum -y install bzip2-devel \
